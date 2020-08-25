@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" ng-app="statsApp">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Statistique Coronavirus - mis à jour 7/7 vers 20H. Statistique sur la létalité, le status par région et département, les patients par age, etc.">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Statistique Coronavirus">
+  <meta property="og:description" content="Suivre l'évolution du Coronavirus (COVID-19) sur statcorona.fr">
+  <meta property="og:image" content="http://statcorona.fr/thumb12Apr.jpg">
+  <meta property="og:url" content="http://statcorona.fr">
+  <meta property="og:type" content="website">
+  
+  <meta name="twitter:card" content="summary_large_image">
+
+  <title>Statistique Coronavirus</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <script src="../dist/js/vendor-min.js"></script>
+  <script src="../dist/js/bundle.js"></script>
+  <link href="../dist/css/vendor.css" rel="stylesheet">
+  <link href="../dist/css/bundle.css" rel="stylesheet">
+</head>
+<body ng-controller="mainCtrl">
+  <nav class="myNavbar navbar-dark bg-dark static-top">
+    <div class="row" ng-if="visits">
+      <div class="d-none d-sm-block col-md-2"></div>
+      <div class="col-sm-12 col-md-8 text-center">
+        <h1><a class="navbar-brand" href="#">Statistique Coronavirus (COVID-19)</a></h1>
+      </div>
+      <div class="col-sm-12 col-md-2 text-center">
+        <span class="visits"><a class="navbar-brand align-middle" href="#">Consulté {{visits}} fois</a></span>
+      </div>
+    </div>
+    <div class="row" ng-if="!visits">
+      <div class="col-sm-12 text-center">
+        <h1><a class="navbar-brand" href="#">Statistique Coronavirus (COVID-19)</a></h1>
+      </div>
+    </div>
+  </nav>
+  <nav class="myNavbar navbar-light bg-light static-top">
+    <div class="row justify-content-center">
+      <div class="col-lg-11 col-md-12 buttons">
+        <a class="font-weight-bold btn btn-info btn-sm d-none d-sm-inline" href="#!FAQ">FAQ - COVID-19</a>
+        
+        <button class="font-weight-bold btn btn-info btn-sm" socialshare socialshare-provider="facebook" socialshare-type="sharer" socialshare-text="Suivre l'évolution du Coronavirus (COVID-19) sur statcorona.fr" socialshare-url="http://statcorona.fr" socialshare-popup-height="400" socialshare-popup-width="400" socialshare-trigger="click" >
+          <i class="fa fa-facebook"></i> Partager
+        </button>
+
+        <button class="font-weight-bold btn btn-info btn-sm" socialshare socialshare-provider="twitter" socialshare-hashtags="statcorona, statcorona.fr, StatistiqueCoronavirus" socialshare-text="Suivre l'évolution du Coronavirus (COVID-19) sur statcorona.fr" socialshare-url="http://statcorona.fr" socialshare-popup-height="300" socialshare-popup-width="400" socialshare-trigger="click" >
+          <i class="fa fa-twitter"></i> Partager
+        </button>
+
+        <a class="font-weight-bold btn btn-info btn-sm" socialshare socialshare-provider="whatsapp" socialshare-hashtags="statcorona, statcorona.fr, StatistiqueCoronavirus" socialshare-text="Suivre l'évolution du Coronavirus (COVID-19) sur" socialshare-url="http://statcorona.fr" socialshare-popup-height="300" socialshare-popup-width="400" socialshare-trigger="click" style="color:white">
+          <i class="fa fa-whatsapp"></i> Partager
+        </a>
+
+        <button ng-click="addFav()" class="font-weight-bold btn btn-info btn-sm d-none d-sm-inline"><i class="fa fa-star" style="color:orange"></i> Favoris</button>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="floatSharing border border-info">
+    <div>
+      <button class="font-weight-bold btn btn-info btn-sm" socialshare socialshare-provider="facebook" socialshare-type="sharer" socialshare-text="Suivre l'évolution du Coronavirus (COVID-19) sur statcorona.fr" socialshare-url="http://statcorona.fr" socialshare-popup-height="400" socialshare-popup-width="400" socialshare-trigger="click">
+        <i class="fa fa-facebook"></i>
+      </button>
+    </div>
+    <div>
+      <button class="font-weight-bold btn btn-info btn-sm" socialshare socialshare-provider="twitter" socialshare-hashtags="statcorona, StatistiqueCoronavirus, CoronavirusFrance, CoronaCrisis" socialshare-text="Suivre l'évolution du Coronavirus (COVID-19) sur " socialshare-popup-height="300" socialshare-popup-width="400" socialshare-trigger="click">
+        <i class="fa fa-twitter"></i>
+      </button>
+    </div>
+    <div>
+      <a class="font-weight-bold btn btn-info btn-sm" socialshare socialshare-provider="whatsapp" socialshare-hashtags="statcorona, statcorona.fr, StatistiqueCoronavirus" socialshare-text="Suivre l'évolution du Coronavirus (COVID-19) sur" socialshare-url="http://statcorona.fr" socialshare-popup-height="300" socialshare-popup-width="400" socialshare-trigger="click" style="color:white">
+        <i class="fa fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+
+  <ng-view></ng-view>
+  
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-11 col-md-12" ng-controller="chartCtrl">
+
+        <!--Key Nbrs-->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <b class="sectionHearder">Chiffres clés</b> <small class="text-muted">@{{franceChartUpdateTime}}</small>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="nav nav-tabs" id="summaryTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="franceSum-tab" data-toggle="tab" href="#franceSum" role="tab" aria-controls="franceSum" aria-selected="true">France</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="italySum-tab" data-toggle="tab" href="#italySum" role="tab" aria-controls="italySum" aria-selected="false">Italie</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="worldSum-tab" data-toggle="tab" href="#worldSum" role="tab" aria-controls="worldSum" aria-selected="false">Monde</a>
+              </li>
+            </ul>
+
+            <div class="tab-content summarySection" id="summaryTabContent">
+              <div class="tab-pane fade show active" id="franceSum" role="tabpanel" aria-labelledby="franceSum-tab">
+                <div class="row text-center justify-content-center">
+                  <div class="col-6 col-md-4 text-break">
+                    <div><small><b>TOTAL CONFIRMÉS</b></small></div>
+                    <div><strong class="confirmed">{{franceTotalConfirmed}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceNewConfirmed}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-4 text-break">
+                    <div title="Le total des décès est la somme des décès survenus à l’hôpital et des décès survenus au sein des établissements - ESMS (hors hôpital)."><small><b>DÉCÈS (1)</b><i class="fa fa-info-circle"></i></small></div>
+                    <div><strong class="death">{{franceTotalDeath}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceNewDeath}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-4 text-break">
+                    <div title="Le nombre de guérisons répertorié représente les retours à domicile après hospitalisation."><small><b>GUÉRIS (2)</b><i class="fa fa-info-circle"></i></small></div>
+                    <div><strong class="cure">{{franceTotalCure}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceNewCure}})</b></small></div>
+                  </div>
+                  <!--div class="col-6 col-md-4 text-break">
+                    <div><small><b>TOTAL HOSPITALISÉS</b></small></div>
+                    <div><strong class="severe">{{franceTotalHosp}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceTotalNewHosp}})</b></small></div>
+                  </div-->
+                  <div class="col-6 col-md-4 text-break">
+                    <div><small><b>HOSP. EN COURS</b></small></div>
+                    <div><strong class="severe">{{franceCurrentHosp}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceCurrentNewHosp}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-4 text-break">
+                    <div><small><b>RÉANIMATIONS</b></small></div>
+                    <div><strong class="severe">{{franceTotalSevere}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceNewSevere}})</b></small></div>
+                  </div>
+                  <!--div class="col-6 col-md-4 text-break">
+                    <div title="La différence entre les cas confirmés et la somme de décès et de guérisons survenus à l’hôpital."><small><b>CAS ACTIFS (2)</b><i class="fa fa-info-circle"></i></small></div>
+                    <div><strong class="confirmed">{{franceTotalActive}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceNewActive}})</b></small></div>
+                  </div-->
+                  <!--div class="col-6 col-md-4 text-break">
+                    <div><small><b>LÉTALITÉ</b></small></div>
+                    <div><strong class="letality">{{franceLetality ? franceLetality + '%' : ''}}</strong></div>
+                    <div><small class="text-muted"><b>({{franceLetalityDiff}}%)</b></small></div>
+                  </div-->
+                  <div class="col-6 col-md-4 text-break">
+                    <div title="Selon une nouvelle correction le 2 juin, seul le nombre de cas confirmés reste pertinent et sera présenté."><small><b>CAS EN ESMS</b><i class="fa fa-info-circle"></i></small></div>
+                    <div><strong class="confirmed">{{franceTotalESMS}}</strong></div>
+                    <!--div><small class="text-muted"><b>({{franceTotalESMSDeath}} DÉCÈS)</b></small></div-->
+                  </div>
+                  <div class="col-6 col-md-4 text-break">
+                    <div><small><b>TAUX DE POSITIVITÉ DES TESTS (3)</b></small></div>
+                    <div><strong class="severe">1.1%</strong></div>
+                  </div>
+                  <div class="col-6 col-md-4 text-break">
+                    <div><small><b>CLUSTERS EN COURS D'INVESTIGATION</b></small></div>
+                    <div><strong class="severe">95</strong></div>
+                    <div><small class="text-muted"><b>(-2 en 24H)</b></small></div>
+                  </div>
+                </div>
+                <div class="row text-center justify-content-center">
+                  <div class="col">
+                    <div class="explainationText">
+                      <div class="text-break text-left">
+                        <small class="text-muted">
+                          <b>(1) Le total des décès est la somme des décès survenus à l’hôpital et des décès survenus au sein des établissements - ESMS (hors hôpital).</b><br/>
+                          <b>(2) Le nombre de guérisons répertorié représente les retours à domicile après hospitalisation.</b><br/>
+                          <b>(3) Nombre de personnes testées positives en RT-PCR SARS-CoV-2 divisé par le nombre de personnes testées, sur les 7 derniers jours consolidés.</b>
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row text-center justify-content-center">
+                  <div class="col">
+                    <div class="summaryText">
+                      <div class="text-break text-left">Pendant les <input value="7" type="number" id="franceAvgDays" name="franceAvgDays" min="2" max="15" ng-model="franceAvgDays" class="text-center"> derniers jours, la France compte en moyen chaque jour, <strong class="confirmed">{{franceAvgConfirmed}}</strong> nouveaux cas confirmés, <strong class="death">{{franceAvgDeath}}</strong> décès et <strong class="severe">{{franceAvgSevere}}</strong> {{franceAvgSevere > 0 ? "nouveaux ":""}}lits de réanimation occupés.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="italySum" role="tabpanel" aria-labelledby="italySum-tab">
+                <div class="row text-center justify-content-center">
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>CONFIRMÉS</b></small></div>
+                    <div><strong class="confirmed">{{italyTotalConfirmed}}</strong></div>
+                    <div><small class="text-muted"><b>({{italyNewConfirmed}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>DÉCÈS</b></small></div>
+                    <div><strong class="death">{{italyTotalDeath}}</strong></div>
+                    <div><small class="text-muted"><b>({{italyNewDeath}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>GUÉRIS</b></small></div>
+                    <div><strong class="cure">{{italyTotalCure}}</strong></div>
+                    <div><small class="text-muted"><b>({{italyNewCure}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>LÉTALITÉ</b></small></div>
+                    <div><strong class="letality">{{italyLetality}}%</strong></div>
+                    <div><small class="text-muted"><b>({{italyLetalityDiff}}%)</b></small></div>
+                  </div>
+                </div>
+                
+                <div class="row text-center justify-content-center">
+                  <div class="col">
+                    <div class="summaryText">
+                      <div class="text-break11 text-left11">Après plusieurs semaines de confinement, l'épidémie de COVID-19 se ralenti en Italie. Elle compte en moyen, dans les 7 derniers jours, <span class="confirmed">{{italyAvgNewCases7Days}}</span> de nouveaux cas confirmés, <span class="death">{{italyAvgNewDeath7Days}}</span> décès et <span class="cure">{{italyAvgCure7Days}}</span> de patients guéris par jour.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="worldSum" role="tabpanel" aria-labelledby="worldSum-tab">
+                <div class="row text-center">
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>CONFIRMÉS</b></small></div>
+                    <div><strong class="confirmed">{{worldTotalConfirmed}}</strong></div>
+                    <div><small class="text-muted"><b>({{worldNewConfirmed}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>DÉCÈS</b></small></div>
+                    <div><strong class="death">{{worldTotalDeath}}</strong></div>
+                    <div><small class="text-muted"><b>({{worldNewDeath}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>GUÉRIS</b></small></div>
+                    <div><strong class="cure">{{worldTotalCure}}</strong></div>
+                    <div><small class="text-muted"><b>({{worldNewCure}})</b></small></div>
+                  </div>
+                  <div class="col-6 col-md-3 text-break">
+                    <div><small><b>LÉTALITÉ</b></small></div>
+                    <div><strong class="letality">{{worldLetality}}%</strong></div>
+                    <div><small class="text-muted"><b>({{worldLetalityDiff}}%)</b></small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Key Nbrs-->
+
+        <!--Map-->
+        <div class="card" ng-controller="mapCtrl">
+          <div class="card-header">
+            <b class="sectionHearder">Plan par région</b> <small class="text-muted"> @{{franceMapUpdateTime}}, 14H00</small>
+          </div>
+
+          <div class="card-body">
+            <div class="worldmap region container-fluid">
+              <div class="row">
+                <div class="col-xl-10 col-lg-9 col-md-8 col-sm-12">
+                  <div class="card">
+                    <div class="card-header">Données d'hospitalisation</div>
+                    <div class="card-body" ng-if="mapDisplay === 'number'">
+                      <p class="card-text">
+                        {{ "En cours d'hospitalisation: " + totalHospitalised + " (dont outre-mer : " + outreMer.hospitalised + ")" }}
+                      </p>
+                    </div>
+                    <div class="card-body" ng-if="mapDisplay === 'rate'">
+                      <p class="card-text">
+                        {{ "Taux d'hospitalisation par 10,000 habitants : " + totalPerc + "‱" + " (dont outre-mer : " + outreMer.percHosp + "‱)" }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12 text-center mapBtns">
+                    <button ng-click="mapBtnClicked('number')" class="font-weight-bold btn btn-info btn-sm" ng-class="{'selected': mapDisplay === 'number'}">Nombre</button>
+                    <button ng-click="mapBtnClicked('rate')" class="font-weight-bold btn btn-info btn-sm" ng-class="{'selected': mapDisplay === 'rate'}">Taux</button>
+                </div>
+              </div>
+            </div>
+
+            <leaflet id="map" lf-center="center" markers="markers" geojson="geojson" events="events" legend="legend" defaults="defaults" width="100%" height="55vh"></leaflet>
+          </div>
+        </div>
+        <!--End Map-->
+        
+        <!--Charts-->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <b class="sectionHearder">Graphes</b>
+            </div>
+            <div>
+              <small class="text-muted"><b>(Cliquez sur les légendes dans les graphes pour masquer les données)</b></small>
+            </div>
+          </div>
+          <div class="card-body">
+            <div ng-controller="regionChartCtrl">
+              <div><b>Par région et départment</b> <small class="text-muted"> @{{dateStatPerRegion}}, 14H00</small></div>
+              <!--France region chart-->
+              <ul class="nav nav-tabs" id="franceRegionChartTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="regionTotal-tab" data-toggle="tab" href="#regionTotal" role="tab" aria-controls="regionTotal" aria-selected="true">Total</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="regHistory-tab" data-toggle="tab" href="#regHistory" role="tab" aria-controls="regHistory" ng-click="loadRegionHistory()" aria-selected="false">Historique régional</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" id="deptHistory-tab" data-toggle="tab" href="#deptHistory" role="tab" aria-controls="deptHistory" ng-click="loadDepartmentHistory()" aria-selected="false">Historique départemental</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" id="regionPerAge-tab" data-toggle="tab" href="#regionPerAge" role="tab" aria-controls="regionPerAge" ng-click="loadRegionAge()" aria-selected="false">Tranche d'age</a>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="franceRegionChartTabContent">
+                <div class="tab-pane fade show active" id="regionTotal" role="tabpanel" aria-labelledby="regionTotal-tab">
+                  <div class="chart-container" style="position: relative; height:50vh;">
+                    <canvas id="lineRegTotal" class="chart chart-line" chart-data="regionTotalChartData"
+                      chart-labels="regionTotalChartLabels" chart-series="regionTotalChartSeries"
+                      chart-colors="regionTotalChartColors" chart-dataset-override="regionTotalDSOverride" chart-options="regionTotalChartOptions">
+                    </canvas>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="regHistory" role="tabpanel" aria-labelledby="regHistory-tab">
+                  <div class="text-center chartActionBtn">
+                    <div class="row justify-content-center">
+                      <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-8">
+                        <select name="repeatSelectRegion" id="repeatSelectRegionHistory" class="form-control form-control-sm"
+                            ng-model="regionsHistorySelectData.selected" ng-change="setRegionHistoryChart()">
+                          <option ng-repeat="region in regionsHistorySelectData.regions" value="{{region.code}}">{{region.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chart-container" style="position: relative; height:50vh;">
+                    <canvas id="lineRegHis" class="chart chart-line" chart-data="regHistoryChartData"
+                      chart-labels="regHistoryChartLabels" chart-series="regHistoryChartSeries"
+                      chart-colors="regHistoryChartColors" chart-options="chartOptions">
+                    </canvas>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="deptHistory" role="tabpanel" aria-labelledby="deptHistory-tab">
+                  <div class="text-center chartActionBtn">
+                    <div class="row justify-content-center">
+                      <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-8">
+                        <input type="text" name="department" ng-model="department.name" ng-keyup="completeDept(department.name)" class="form-control form-control-sm" placeholder='Ex : "06" ou "Alpes-maritimes"' ng-value="selectedDeptDisplayValue"/>
+                        <ul class="list-group">
+                          <li class="list-group-item py-1" ng-repeat="dept in filteredDepts" ng-click="fillTextbox(dept)">{{dept.code}} - {{dept.name}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chart-container" style="position: relative; height:50vh;">
+                    <canvas id="lineDeptHis" class="chart chart-line" chart-data="deptHistoryChartData"
+                      chart-labels="deptHistoryChartLabels" chart-series="deptHistoryChartSeries"
+                      chart-colors="deptHistoryChartColors" chart-options="chartOptions">
+                    </canvas>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="regionPerAge" role="tabpanel" aria-labelledby="regionPerAge-tab">
+                  <div class="text-center chartActionBtn">
+                    <div class="row justify-content-center">
+                      <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-xs-8">
+                        <select name="repeatSelectRegion" id="repeatSelectRegionAge" class="form-control form-control-sm"
+                            ng-model="regionsAgeSelectData.selected" ng-change="setRegionPerAgeChart()">
+                          <option ng-repeat="region in regionsAgeSelectData.regions" value="{{region.name}}">{{region.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chart-container" style="position: relative; height:40vh;">
+                    <canvas id="pie" class="chart chart-doughnut chart-xs" chart-data="regionPerAgeChartData"
+                    chart-labels="regionPerAgeChartLabels" chart-options="regionPerAgeChartOptions"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="newSection"><b>France entier</b> <small class="text-muted">@{{franceChartUpdateTime}}</small></div>
+            <!--France chart-->
+            <ul class="nav nav-tabs" id="franceChartTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="true">Historique</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="historyESMS-tab" data-toggle="tab" href="#historyESMS" role="tab" aria-controls="historyESMS" aria-selected="true">ESMS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="new-case-tab" data-toggle="tab" href="#new-case" role="tab" aria-controls="new-case" aria-selected="false">Nouveaux</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="letality-tab" data-toggle="tab" href="#letality" role="tab" aria-controls="letality" aria-selected="false">Létalité</a>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="franceChartTabContent">
+              <div class="tab-pane fade show active" id="history" role="tabpanel" aria-labelledby="history-tab">
+                <div class="chart-container" style="position: relative; height:45vh;">
+                  <canvas id="lineFraHis" class="chart chart-line" chart-data="hisChartData" chart-colors="hisChartColors"
+                    chart-labels="hisChartLabels" chart-series="hisChartSeries" chart-options="hisChartOptions">
+                  </canvas>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="historyESMS" role="tabpanel" aria-labelledby="historyESMS-tab">
+                <div class="chart-container" style="position: relative; height:45vh;">
+                  <canvas id="lineFraHisESMS" class="chart chart-line" chart-data="esmsHisChartData" chart-colors="esmsHisChartColors"
+                    chart-labels="esmsHisChartLabels" chart-series="esmsHisChartSeries" chart-options="esmsHisChartOptions">
+                  </canvas>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="new-case" role="tabpanel" aria-labelledby="new-case-tab">
+                <div class="chart-container" style="position: relative; height:45vh;">
+                  <canvas id="lineFraNew" class="chart chart-line" chart-data="newCaseChartData" chart-colors="newCaseChartColors"
+                    chart-labels="newCaseChartLabels" chart-series="newCaseChartSeries" chart-options="newCaseChartOptions">
+                  </canvas>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="letality" role="tabpanel" aria-labelledby="letality-tab">
+                <div class="chart-container" style="position: relative; height:45vh;">
+                  <canvas id="lineFraLet" class="chart chart-line" chart-data="letChartData" chart-colors="letChartColors"
+                    chart-labels="letChartLabels" chart-series="letChartSeries" chart-options="letChartOptions"
+                    chart-dataset-override="letChartDSOverride" >
+                  </canvas>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="newSection"><b>Monde</b> <small class="text-muted">@{{franceChartUpdateTime}}</small></div>
+            <!--World chart-->
+            <ul class="nav nav-tabs" id="worldChartTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link  active" id="compare-tab" data-toggle="tab" href="#compare" role="tab" aria-controls="compare" aria-selected="true">France vs Italie</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" id="worldLetality-tab" data-toggle="tab" href="#worldLetality" role="tab" aria-controls="worldLetality" aria-selected="false">Par pays</a>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="worldChartTabContent">
+              <div class="tab-pane fade show active" id="compare" role="tabpanel" aria-labelledby="compare-tab">
+                <div class="text-center chartActionBtn">
+                  <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <button ng-click="italyFull=!italyFull; setItalyChart();" class="font-weight-bold btn btn-info btn-sm" ng-class="{'selected':italyFull}">{{updateItalyLabel}}</button>
+                    </div>
+                    <div class="row justify-content-center">
+                      <div class="col-md-4 col-xs-6">
+                        <input id="dateDiff" type="range" class="form-control-range form-control-sm" ng-model="dateDiff" min="0" max="20"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-container" style="position: relative; height:50vh;">
+                  <canvas id="lineCompare" class="chart chart-line" chart-data="compareChartData" chart-colors="compareChartColors"
+                    chart-labels="compareChartLabels" chart-series="compareChartSeries" chart-options="compareChartOptions">
+                  </canvas>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="worldLetality" role="tabpanel" aria-labelledby="worldLetality-tab">
+                <div class="text-center chartActionBtn">
+                  <button ng-click="worldLetDisplayConfirmed()" ng-class="{'selected': worldLetDisplay === 'CNF'}" class="font-weight-bold btn btn-info btn-sm" >Cas Confirmés</button>
+                  <button ng-click="worldLetDisplayBeds()" ng-class="{'selected': worldLetDisplay === 'BED'}" class="font-weight-bold btn btn-info btn-sm" >Lits d'hôpitaux</button>
+                </div>
+                <div class="chart-container" style="position: relative; height:50vh;">
+                  <canvas id="lineWorld" class="chart chart-bar" chart-data="worldLetChartData" chart-colors="worldLetChartColors"
+                  chart-labels="worldLetChartLabels" chart-series="worldLetChartSeries" chart-options="worldLetChartOptions"
+                  chart-dataset-override="worldLetDSOverride"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Charts-->
+
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer bg-light" style="width:100%" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 h-100 text-center text-lg-center my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="https://bitbucket.org/aochenyang/statscorona.git">Contribuer au projet</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="mailto:statcorona@gmail.com">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="https://www.santepubliquefrance.fr/" target="_blank">Santé Publique France</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="https://www.gouvernement.fr/info-coronavirus" target="_blank">Information COVID-19</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="https://coronavirus.politologue.com" target="_blank">Statistique sur politologue</a>
+            </li>
+          </ul>
+          <span class="text-muted small">&copy; Statcorona 2020. All Rights Reserved.</span>
+          <p class="text-muted small mb-4 mb-lg-0">Sources de données : ARS, Santé Publique France, Médias, ECDC</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fa fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fa fa-twitter fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

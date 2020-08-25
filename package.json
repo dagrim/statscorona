@@ -1,0 +1,49 @@
+{
+    "name": "statcorona",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Statistique Coronavirus",
+    "scripts": {
+        "pm2": "gulp run && sudo pm2 start server.js -i max --log-date-format 'DD-MM HH:mm:ss.SSS'",
+        "start": "gulp run && node server.js",
+        "offline": "node offline/processer.js"
+    },
+    "main": "server.js",
+    "author": "Aochen YANG",
+    "dependencies": {
+        "angular": "^1.7.9",
+        "angular-animate": "^1.7.9",
+        "angular-aria": "^1.7.9",
+        "angular-chart.js": "^1.1.1",
+        "angular-leaflet-directive": "^0.10.0",
+        "angular-route": "^1.7.9",
+        "angular-socialshare": "^2.3.11",
+        "better-sqlite3": "^6.0.1",
+        "body-parser": "~1.19.0",
+        "compression": "^1.7.4",
+        "express": "~4.17.1",
+        "filereader": "^0.10.3",
+        "gulp-concat": "^2.6.1",
+        "gulp-jshint": "^2.1.0",
+        "gulp-minify": "^3.1.0",
+        "gulp-notify": "^3.2.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "gulp-util": "^3.0.8",
+        "jsonwebtoken": "^8.5.1",
+        "leaflet": "^1.6.0",
+        "method-override": "~3.0.0",
+        "mongo-sanitize": "^1.1.0",
+        "mongoose": "~5.8.11",
+        "mongoose-sequence": "^5.2.2",
+        "morgan": "~1.9.1",
+        "request": "^2.88.2",
+        "request-promise": "^4.2.5",
+        "xlsx": "^0.15.6"
+    },
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-cli": "^2.2.0"
+    }
+}

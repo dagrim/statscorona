@@ -1,0 +1,94 @@
+{
+  "11": {
+    "name": "Île-de-France",
+    "confirmed": 626,
+    "death": 4,
+    "healed": 5
+  },
+  "24": {
+    "name": "Centre-Val de Loire",
+    "confirmed": 30,
+    "death": 0,
+    "healed": 0
+  },
+  "27": {
+    "name": "Bourgogne Franche comté",
+    "confirmed": 219,
+    "death": 5,
+    "healed": 8,
+    "severe": 11
+  },
+  "28": {
+    "name": "Normandie",
+    "confirmed": 68,
+    "death": 1,
+    "healed": 0,
+    "severe": 8
+  },
+  "32": {
+    "name": "Hauts de France",
+    "confirmed": 349,
+    "death": 20,
+    "healed": 0
+  },
+  "44": {
+    "name": "Grand Est",
+    "confirmed": 699,
+    "death": 9,
+    "healed": 0
+  },
+  "52": {
+    "name": "Pays de la Loire",
+    "confirmed": 42,
+    "death": 0,
+    "healed": 4
+  },
+  "53": {
+    "name": "Bretagne",
+    "confirmed": 120,
+    "death": 3,
+    "healed": 0
+  },
+  "75": {
+    "name": "Nouvelle-Aquitaine",
+    "confirmed": 88,
+    "death": 0,
+    "healed": 2
+  },
+  "76": {
+    "name": "Occitanie",
+    "confirmed": 150,
+    "death": 0,
+    "healed": 0
+  },
+  "84": {
+    "name": "Auvergne-Rhône-Alpes",
+    "confirmed": 333,
+    "death": 7,
+    "healed": 8
+  },
+  "93": {
+    "name": "Provence-Alpes-Côte d'Azur",
+    "confirmed": 151,
+    "death": 0,
+    "healed": 3,
+    "severe": 7
+  },
+  "94": {
+    "name": "Corse",
+    "confirmed": 64,
+    "death": 3,
+    "healed": 0,
+    "severe": 1
+  },
+  "others": {
+    "confirmed": 16,
+    "Guadeloupe": 0,
+    "Martinique": 4,
+    "Guyane": 6,
+    "LaRéunion": 3,
+    "Mayotte": 0,
+    "Saint-Barthélémy": 1,
+    "Saint-Martin": 2
+  }
+}

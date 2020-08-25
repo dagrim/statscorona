@@ -1,0 +1,67 @@
+{
+  "updateTime": "18 Mars, 20H30",
+  "totalFrance": "https://www.santepubliquefrance.fr/maladies-et-traumatismes/maladies-et-infections-respiratoires/infection-a-coronavirus/articles/infection-au-nouveau-coronavirus-sars-cov-2-covid-19-france-et-monde",
+  "states": {
+    "11": {
+      "name": "Île-de-France",
+      "confirmed": 2693
+    },
+    "24": {
+      "name": "Centre-Val de Loire",
+      "confirmed": 128
+    },
+    "27": {
+      "name": "Bourgogne Franche comté",
+      "confirmed": 593
+    },
+    "28": {
+      "name": "Normandie",
+      "confirmed": 208
+    },
+    "32": {
+      "name": "Hauts de France",
+      "confirmed": 665
+    },
+    "44": {
+      "name": "Grand Est",
+      "confirmed": 2163
+    },
+    "52": {
+      "name": "Pays de la Loire",
+      "confirmed": 128
+    },
+    "53": {
+      "name": "Bretagne",
+      "confirmed": 273
+    },
+    "75": {
+      "name": "Nouvelle-Aquitaine",
+      "confirmed": 237
+    },
+    "76": {
+      "name": "Occitanie",
+      "confirmed": 371
+    },
+    "84": {
+      "name": "Auvergne-Rhône-Alpes",
+      "confirmed": 858
+    },
+    "93": {
+      "name": "Provence-Alpes-Côte d'Azur",
+      "confirmed": 574
+    },
+    "94": {
+      "name": "Corse",
+      "confirmed": 152
+    },
+    "others": {
+      "Guadeloupe": 33,
+      "Saint-Barthélémy": 3,
+      "Saint-Martin": 4,
+      "Guyane": 11,
+      "Martinique": 23,
+      "Mayotte": 3,
+      "La Réunion": 14
+    }
+  }
+}

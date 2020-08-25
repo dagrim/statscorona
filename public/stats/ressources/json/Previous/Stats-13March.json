@@ -1,0 +1,122 @@
+{
+    "11": {
+      "totalFrance": "https://www.santepubliquefrance.fr/maladies-et-traumatismes/maladies-et-infections-respiratoires/infection-a-coronavirus/articles/infection-au-nouveau-coronavirus-sars-cov-2-covid-19-france-et-monde",
+      "name": "Île-de-France",
+      "confirmed": 876,
+      "death": 4,
+      "healed": 5,
+      "desc": "https://www.iledefrance.ars.sante.fr/coronavirus-covid-19-points-de-situation",
+      "date": "13 Mars"
+    },
+    "24": {
+      "name": "Centre-Val de Loire",
+      "confirmed": 33,
+      "death": 0,
+      "healed": 0,
+      "desc": "https://www.centre-val-de-loire.ars.sante.fr/coronavirus-covid-19-point-de-situation-1",
+      "date": "13 Mars"
+    },
+    "27": {
+      "name": "Bourgogne Franche comté",
+      "confirmed": 272,
+      "death": 5,
+      "healed": 8,
+      "severe": 11,
+      "desc": "https://www.bourgogne-franche-comte.ars.sante.fr/coronavirus-covid-19-point-de-situation-en-bourgogne-franche-comte-ce-vendredi-13-mars",
+      "date": "13 Mars"
+    },
+    "28": {
+      "name": "Normandie",
+      "confirmed": 97,
+      "death": 1,
+      "healed": 0,
+      "severe": 11,
+      "desc": "https://www.normandie.ars.sante.fr/coronavirus-point-de-situation-en-normandie-1",
+      "date": "13 Mars"
+    },
+    "32": {
+      "name": "Hauts de France",
+      "confirmed": 397,
+      "death": 26,
+      "healed": 0,
+      "desc": "https://www.hauts-de-france.ars.sante.fr/coronavirus-actualites",
+      "date": "13 Mars 15H"
+    },
+    "44": {
+      "name": "Grand Est",
+      "confirmed": 911,
+      "death": 21,
+      "healed": 0,
+      "desc": "https://www.grand-est.ars.sante.fr/coronavirus-actualite-et-conduite-tenir-7",
+      "date": "13 Mars 17H - late"
+    },
+    "52": {
+      "name": "Pays de la Loire",
+      "confirmed": 56,
+      "death": 0,
+      "healed": 4,
+      "desc": "https://www.pays-de-la-loire.ars.sante.fr/coronavirus-actualite-et-conduite-tenir-0",
+      "date": "13 Mars 15H"
+    },
+    "53": {
+      "name": "Bretagne",
+      "confirmed": 157,
+      "death": 3,
+      "healed": 0,
+      "desc": "https://www.bretagne.ars.sante.fr/coronavirus-bulletin-quotidien-en-bretagne",
+      "date": "13 Mars 17h30"
+    },
+    "75": {
+      "name": "Nouvelle-Aquitaine",
+      "confirmed": 115,
+      "death": 0,
+      "healed": 2,
+      "desc": "https://www.nouvelle-aquitaine.ars.sante.fr/",
+      "date": "13 Mars"
+    },
+    "76": {
+      "name": "Occitanie",
+      "confirmed": 175,
+      "death": 0,
+      "healed": 3,
+      "severe": 17,
+      "desc": "https://www.occitanie.ars.sante.fr/coronavirus-covid-19-informations-et-recommandations-sanitaires",
+      "date": "13 Mars 21 - late"
+    },
+    "84": {
+      "name": "Auvergne-Rhône-Alpes",
+      "confirmed": 416,
+      "death": 7,
+      "healed": 8,
+      "desc": "https://www.auvergne-rhone-alpes.ars.sante.fr/liste-communiques-presse",
+      "date": "13 Mars"
+    },
+    "93": {
+      "name": "Provence-Alpes-Côte d'Azur",
+      "confirmed": 212,
+      "death": 0,
+      "healed": 3,
+      "severe": 11,
+      "desc": "https://www.paca.ars.sante.fr/liste-communiques-presse",
+      "date": "13 Mars"
+    },
+    "94": {
+      "name": "Corse",
+      "confirmed": 85,
+      "death": 5,
+      "healed": 0,
+      "severe": 1,
+      "desc": "https://www.corse.ars.sante.fr/coronavirus-covid-19-informations-utiles",
+      "date": "13 Mars 18H"
+    },
+    "others": {
+      "Guadeloupe": 1,
+      "Saint-Barthélémy": 1,
+      "Saint-Martin": 2,
+      "Guyane": 6,
+      "Martinique": 6,
+      "Mayotte": 0,
+      "LaRéunion": 5,
+      "date": "13 Mars"
+    }
+  }

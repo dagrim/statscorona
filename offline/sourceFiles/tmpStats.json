@@ -1,0 +1,129 @@
+{
+    "updateTime": "25 Mars, 19H45",
+    "states": {
+        "11": {
+            "name": "Île-de-France",
+            "confirmed": 7660
+        },
+        "24": {
+            "name": "Centre-Val de Loire",
+            "confirmed": 645
+        },
+        "27": {
+            "name": "Bourgogne Franche comté",
+            "confirmed": 1569
+        },
+        "28": {
+            "name": "Normandie",
+            "confirmed": 688
+        },
+        "32": {
+            "name": "Hauts de France",
+            "confirmed": 1753
+        },
+        "44": {
+            "name": "Grand Est",
+            "confirmed": 5479
+        },
+        "52": {
+            "name": "Pays de la Loire",
+            "confirmed": 368
+        },
+        "53": {
+            "name": "Bretagne",
+            "confirmed": 603
+        },
+        "75": {
+            "name": "Nouvelle-Aquitaine",
+            "confirmed": 912
+        },
+        "76": {
+            "name": "Occitanie",
+            "confirmed": 1082
+        },
+        "84": {
+            "name": "Auvergne-Rhône-Alpes",
+            "confirmed": 2093
+        },
+        "93": {
+            "name": "Provence-Alpes-Côte d'Azur",
+            "confirmed": 1927
+        },
+        "94": {
+            "name": "Corse",
+            "confirmed": 225
+        },
+        "others": {
+            "Guadeloupe": 76,
+            "Saint-Barthélémy": 3,
+            "Saint-Martin": 11,
+            "Guyane": 28,
+            "Martinique": 66,
+            "Mayotte": 35,
+            "La Réunion": 94
+        }
+    },
+    "J-1": {
+        "11": {
+            "name": "Île-de-France",
+            "confirmed": 7660
+        },
+        "24": {
+            "name": "Centre-Val de Loire",
+            "confirmed": 561
+        },
+        "27": {
+            "name": "Bourgogne Franche comté",
+            "confirmed": 1569
+        },
+        "28": {
+            "name": "Normandie",
+            "confirmed": 688
+        },
+        "32": {
+            "name": "Hauts de France",
+            "confirmed": 1753
+        },
+        "44": {
+            "name": "Grand Est",
+            "confirmed": 5479
+        },
+        "52": {
+            "name": "Pays de la Loire",
+            "confirmed": 368
+        },
+        "53": {
+            "name": "Bretagne",
+            "confirmed": 603
+        },
+        "75": {
+            "name": "Nouvelle-Aquitaine",
+            "confirmed": 912
+        },
+        "76": {
+            "name": "Occitanie",
+            "confirmed": 1082
+        },
+        "84": {
+            "name": "Auvergne-Rhône-Alpes",
+            "confirmed": 2093
+        },
+        "93": {
+            "name": "Provence-Alpes-Côte d'Azur",
+            "confirmed": 1927
+        },
+        "94": {
+            "name": "Corse",
+            "confirmed": 225
+        },
+        "others": {
+            "Guadeloupe": 76,
+            "Saint-Barthélémy": 3,
+            "Saint-Martin": 11,
+            "Guyane": 28,
+            "Martinique": 66,
+            "Mayotte": 35,
+            "La Réunion": 94
+        }
+    }
+}

@@ -1,0 +1,190 @@
+html {
+  font-family: sans-serif;
+}
+
+body, html { height: 100%; }
+
+.legend {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #555;
+  width: 110px;
+}
+
+.legend i {
+  clear: both;
+  width: 16px;
+  height: 16px;
+  float: left;
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+.worldmap {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+}
+
+div.worldmap.region {
+  font-size: 1em;
+  font-weight: bold;
+  z-index: 400;
+  padding: .2em 0;
+  line-height: 0.4em;
+  text-align: left;
+  display: inline-block;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .worldmap .card-body { padding: .2em 1.25em; }
+  .worldmap .card-text { line-height: 1.5em; }
+}
+
+
+.card {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+.card-text {
+  word-wrap: break-word;
+}
+
+.tab-content>.tab-pane {
+  border: #dee2e6;
+  border-width: 1px;
+  border-style: solid;
+  border-top: none;
+}
+
+.myNavbar {
+  padding: .5rem 1rem;
+}
+
+.faq {
+  padding: 15px 0px;
+}
+
+.faq .card {
+  margin-bottom: 0.2rem;
+}
+.faq .card .card-header, .faq .card .card-body {
+  padding: 0.3rem 1rem;
+
+}
+
+.faq .card .card-header .btn {
+  padding: 0rem;
+}
+
+.newSection, .chartActionBtn{
+  padding-top: 1.5rem;
+}
+
+.mapBtns .btn {
+  margin: 0.25rem;
+  white-space: nowrap;
+}
+
+.chartActionBtn .btn, .mapBtns .btn {
+  min-width: 162px;
+}
+
+.mapBtns .selected, .chartActionBtn .selected {
+  background-color: #10707f;
+}
+
+.mapTooltip {
+  font-weight: bold;
+}
+
+.sectionHearder {
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 0px) and (max-width: 999px) {
+  .floatSharing { display: none; }
+}
+
+.floatSharing {
+  position:fixed;
+  bottom:50%;
+  left:6px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+  border-radius: 3px;
+  border-width: 2px !important;
+}
+
+.floatSharing .btn, .floatSharing a {
+  width: 30px;
+  margin: 5px;
+}
+
+.confirmed {
+  color: #f74c31;
+  font-weight: bold;
+}
+
+.death {
+  color: #5d7092;
+  font-weight: bold;
+}
+
+.cure {
+  color: #28b7a3;
+  font-weight: bold;
+}
+
+.letality {
+  color: #a25a4e;
+  font-weight: bold;
+}
+
+.severe {
+  color: #f78207;
+  font-weight: bold;
+}
+
+.summarySection .text-break {
+  margin: 8px 0px;
+}
+
+.summarySection .text-break .fa-info-circle {
+  color: gray;
+  position: absolute;
+  top: 0;
+}
+
+#franceAvgDays {
+  max-width: 40px;
+}
+
+.explainationText {
+  margin: 0em 2em;
+}
+.summarySection .summaryText {
+  margin: 2em;
+  border-top: 2px solid rgba(26,164,46,0.42);
+}
+
+.visits .navbar-brand {
+  color: white;
+  font-size: 0.7em !important;
+  margin-top: 1.5em;
+}
+
+.summaryText input {
+  max-width: 100px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  display: inline;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .visits .navbar-brand { margin-top: 0em; }
+}

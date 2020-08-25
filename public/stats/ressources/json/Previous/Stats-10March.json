@@ -1,0 +1,80 @@
+{
+    "11": {
+      "name": "Île-de-France",
+      "confirmed": 440,
+      "death": 3,
+      "healed": 5
+    },
+    "24": {
+      "name": "Val De Loire",
+      "confirmed": 17,
+      "death": 0,
+      "healed": 0
+    },
+    "27": {
+      "name": "Bourgogne Franche comté",
+      "confirmed": 146,
+      "death": 0,
+      "healed": 0
+    },
+    "28": {
+      "name": "Normandie",
+      "confirmed": 37,
+      "death": 0,
+      "healed": 0
+    },
+    "32": {
+      "name": "Hauts de France",
+      "confirmed": 209,
+      "death": 0,
+      "healed": 0
+    },
+    "44": {
+      "name": "Grand Est",
+      "confirmed": 464,
+      "death": 0,
+      "healed": 0
+    },
+    "52": {
+      "name": "Pays de la Loire",
+      "confirmed": 27,
+      "death": 0,
+      "healed": 0
+    },
+    "53": {
+      "name": "Bretagne",
+      "confirmed": 81,
+      "death": 0,
+      "healed": 0
+    },
+    "75": {
+      "name": "Nouvelle-Aquitaine",
+      "confirmed": 54,
+      "death": 0,
+      "healed": 0
+    },
+    "76": {
+      "name": "Occitanie",
+      "confirmed": 61,
+      "death": 0,
+      "healed": 0
+    },
+    "84": {
+      "name": "Auvergne-Rhône-Alpes",
+      "confirmed": 211,
+      "death": 0,
+      "healed": 0
+    },
+    "93": {
+      "name": "Provence-Alpes-Côte d'Azur",
+      "confirmed": 89,
+      "death": 0,
+      "healed": 0
+    },
+    "94": {
+      "name": "Corse",
+      "confirmed": 42,
+      "death": 0,
+      "healed": 0
+    }
+  }

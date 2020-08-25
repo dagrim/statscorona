@@ -1,0 +1,130 @@
+{
+  "updateTime": "21 Mars, 20H15",
+  "totalFrance": "https://www.santepubliquefrance.fr/maladies-et-traumatismes/maladies-et-infections-respiratoires/infection-a-coronavirus/articles/infection-au-nouveau-coronavirus-sars-cov-2-covid-19-france-et-monde",
+  "states": {
+    "11": {
+      "name": "Île-de-France",
+      "confirmed": 4695
+    },
+    "24": {
+      "name": "Centre-Val de Loire",
+      "confirmed": 254
+    },
+    "27": {
+      "name": "Bourgogne Franche comté",
+      "confirmed": 903
+    },
+    "28": {
+      "name": "Normandie",
+      "confirmed": 345
+    },
+    "32": {
+      "name": "Hauts de France",
+      "confirmed": 791
+    },
+    "44": {
+      "name": "Grand Est",
+      "confirmed": 3089
+    },
+    "52": {
+      "name": "Pays de la Loire",
+      "confirmed": 234
+    },
+    "53": {
+      "name": "Bretagne",
+      "confirmed": 359
+    },
+    "75": {
+      "name": "Nouvelle-Aquitaine",
+      "confirmed": 521
+    },
+    "76": {
+      "name": "Occitanie",
+      "confirmed": 611
+    },
+    "84": {
+      "name": "Auvergne-Rhône-Alpes",
+      "confirmed": 1266
+    },
+    "93": {
+      "name": "Provence-Alpes-Côte d'Azur",
+      "confirmed": 1041
+    },
+    "94": {
+      "name": "Corse",
+      "confirmed": 173
+    },
+    "others": {
+      "Guadeloupe": 56,
+      "Saint-Barthélémy": 3,
+      "Saint-Martin": 5,
+      "Guyane": 18,
+      "Martinique": 37,
+      "Mayotte":11,
+      "La Réunion": 47
+    }
+  },
+  "J-1": {
+    "11": {
+      "name": "Île-de-France",
+      "confirmed": 3818
+    },
+    "24": {
+      "name": "Centre-Val de Loire",
+      "confirmed": 219
+    },
+    "27": {
+      "name": "Bourgogne Franche comté",
+      "confirmed": 770
+    },
+    "28": {
+      "name": "Normandie",
+      "confirmed": 287
+    },
+    "32": {
+      "name": "Hauts de France",
+      "confirmed": 759
+    },
+    "44": {
+      "name": "Grand Est",
+      "confirmed": 3006
+    },
+    "52": {
+      "name": "Pays de la Loire",
+      "confirmed": 190
+    },
+    "53": {
+      "name": "Bretagne",
+      "confirmed": 346
+    },
+    "75": {
+      "name": "Nouvelle-Aquitaine",
+      "confirmed": 432
+    },
+    "76": {
+      "name": "Occitanie",
+      "confirmed": 537
+    },
+    "84": {
+      "name": "Auvergne-Rhône-Alpes",
+      "confirmed": 1101
+    },
+    "93": {
+      "name": "Provence-Alpes-Côte d'Azur",
+      "confirmed": 826
+    },
+    "94": {
+      "name": "Corse",
+      "confirmed": 168
+    },
+    "others": {
+      "Guadeloupe": 51,
+      "Saint-Barthélémy": 3,
+      "Saint-Martin": 4,
+      "Guyane": 15,
+      "Martinique": 32,
+      "Mayotte": 7,
+      "La Réunion": 38
+    }
+  }
+}

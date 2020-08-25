@@ -1,0 +1,110 @@
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card-group">
+        <!--Map-->
+        <div class="card">
+          <div class="card-header">
+            Par région <small class="text-muted"> données ARS disp. du 13 Mars, 20H00</small>
+          </div>
+          <div class="card-body">
+            
+            <div class="worldmap region container">
+              <!--div ng-show="selectedRegion" class="flag" ng-class="countries[selectedRegion.id]['alpha-2']|lowercase"></div-->
+              
+              <div class="card">
+                <div class="card-header">
+                  {{ selectedRegion.name ? selectedRegion.name : 'France'}}
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    {{ selectedRegion.name ? "Confirmés : " + selectedRegion.confirmed : ('Total : ' + totalConfirmed + ' (outre-mer : ' + totalOutreMer + ')')}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <leaflet id="map" lf-center="center" geojson="geojson" events="events" legend="legend" defaults="defaults" width="100%" height="450px"></leaflet>
+          </div>
+        </div>
+        <!--End Map-->
+        <!--Charts-->
+        <div class="card">
+          <div class="card-header">
+            Graphes <small class="text-muted">13 Mars, 19H00</small>
+          </div>
+          <div class="card-body">
+            <!-- Total France tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="true">Historique</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="letality-tab" data-toggle="tab" href="#letality" role="tab" aria-controls="letality" aria-selected="false">Létalité (France)</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="new-case-tab" data-toggle="tab" href="#new-case" role="tab" aria-controls="new-case" aria-selected="false">Nouveaux cas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="worldLetality-tab" data-toggle="tab" href="#worldLetality" role="tab" aria-controls="worldLetality" aria-selected="false">Létalité (Mondiale)</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="history" role="tabpanel" aria-labelledby="history-tab">
+                <canvas id="line" class="chart chart-line" chart-data="hisChartData" chart-colors="hisChartColors"
+                  chart-labels="hisChartLabels" chart-series="hisChartSeries" chart-options="chartOptions">
+                </canvas>
+
+
+              </div>
+              <div class="tab-pane fade" id="letality" role="tabpanel" aria-labelledby="letality-tab">
+                <canvas id="line" class="chart chart-line" chart-data="letChartData" chart-colors="letChartColors"
+                  chart-labels="letChartLabels" chart-series="letChartSeries" chart-options="letChartOptions"
+                  chart-dataset-override="letChartDSOverride" >
+                </canvas>
+              </div>
+              <div class="tab-pane fade" id="new-case" role="tabpanel" aria-labelledby="new-case-tab">
+                <canvas id="line" class="chart chart-line" chart-data="newCaseChartData" chart-colors="newCaseChartColors"
+                  chart-labels="newCaseChartLabels" chart-series="newCaseChartSeries" chart-options="chartOptions">
+                </canvas>
+              </div>
+              
+              <div class="tab-pane fade" id="worldLetality" role="tabpanel" aria-labelledby="worldLetality-tab">
+                <div class="chart-container" style="position: relative; height:40vh;">
+                  <canvas id="line" class="chart chart-bar" chart-data="worldLetChartData"
+                  chart-labels="worldLetChartLabels" chart-series="worldLetChartSeries" chart-options="worldLetChartOptions"
+                  chart-dataset-override="worldLetDSOverride"></canvas>
+                </div>
+                
+              </div>
+            </div>
+
+            <!--ul class="nav nav-tabs" id="regionGraphTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="ile-de-france-tab" data-toggle="tab" href="#ile-de-france" role="tab" aria-controls="ile-de-france" aria-selected="true">Île-de-France</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="normandie-tab" data-toggle="tab" href="#normandie" role="tab" aria-controls="normandie" aria-selected="false">Normandie</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="regionGraphTabContent">
+              <div class="tab-pane fade show active" id="ile-de-france" role="tabpanel" aria-labelledby="ile-de-france-tab">
+                <canvas id="line" class="chart chart-line" chart-data="hisChartData" chart-colors="hisChartColors"
+                  chart-labels="hisChartLabels" chart-series="hisChartSeries" chart-options="chartOptions">
+                </canvas>
+              </div>
+              <div class="tab-pane fade" id="normandie" role="tabpanel" aria-labelledby="normandie-tab">
+                <canvas id="line" class="chart chart-line" chart-data="letChartData" chart-colors="letChartColors"
+                  chart-labels="letChartLabels" chart-series="letChartSeries" chart-options="letChartOptions"
+                  chart-dataset-override="letChartDSOverride" >
+                </canvas>
+              </div>
+            </div-->
+            
+          </div>
+        </div>
+        <!--End Charts-->
+      </div>
+    </div>
+  </div>
+  

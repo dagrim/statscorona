@@ -1,0 +1,51 @@
+<!-- Creates Main Panel -->
+<div class="panel panel-default">
+
+    <!-- Panel Title -->
+    <div class="panel-heading">
+        <h2 class="panel-title text-center">Near me<span class="glyphicon glyphicon-map-marker"></span></h2>
+    </div>
+
+    <!-- Panel Body -->
+    <div class="panel-body">
+
+        <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
+        <form name ="addForm" novalidate>
+
+            <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
+            <div class="blueBox">
+                <div class="row garageWrapper">
+                    <div class="col-sm-8">
+                        <label for="username">1 - Green's Garage <span class="badge">Closest to me</span></label>
+                        <br/>
+                        <label for="username">Address: 2221 SW 32nd Ave, Miami, FL 33145, USA</label>
+                        <br/>
+                        <label for="username"><b>Services:</b> change tyres - 15 USD</label>
+                    </div>
+                    <div class="col-sm-4 text-center bookButton">
+                        <span class="pull-right">
+                            <button class="book">Book a servie</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blueBox">
+                <div class="row garageWrapper">
+                    <div class="col-sm-8">
+                        <label for="username">2 - Leon's Garage</label>
+                        <br/>
+                        <label for="username">Address: 360 NE 80th Terrace, Miami, FL 33138, USA</label>
+                        <br/>
+                        <label for="username"><b>Services:</b> change window - 50 USD</label>
+                    </div>
+                    <div class="col-sm-4 text-center bookButton">
+                        <span class="pull-right">
+                            <button class="book">Book a servie</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
