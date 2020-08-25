@@ -1,0 +1,4 @@
+node_modules/
+app/*.sqlite
+statCorona.db
+offline/sourceFiles/tmpHistorique.json
